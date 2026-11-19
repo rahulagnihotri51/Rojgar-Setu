@@ -26,8 +26,6 @@ app.use('/api/workers', workerRoutes)
 
 io.on('connection', socket => {
   console.log(`Socket connected: ${socket.id}`)
-  // Demo-only event for trying live job alerts before MongoDB is configured.
-  // Do not enable this unauthenticated event in production.
   if (process.env.NODE_ENV !== 'production') {
     socket.on('demo:job-created', job => {
       if (!job || typeof job.title !== 'string' || typeof job.skill !== 'string') return
