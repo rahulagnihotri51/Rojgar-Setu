@@ -12,10 +12,6 @@
     "dotenv": "^18.0.10",
     "express": "latest",
     "jsonwebtoken": "latest",
-    "mongoose": "latest"
-    "dotenv": "latest",
-    "express": "latest",
-    "jsonwebtoken": "latest",
     "mongoose": "latest",
     "socket.io": "^4.8.4"
   }
