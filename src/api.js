@@ -12,5 +12,7 @@ export const api = {
   jobs: () => request('/jobs'), workers: () => request('/workers'),
   postJob: body => request('/jobs', { method: 'POST', body: JSON.stringify(body) }),
   apply: id => request(`/jobs/${id}/apply`, { method: 'POST' }),
-  availability: (id, availability) => request(`/workers/${id}/availability`, { method: 'PATCH', body: JSON.stringify({ availability }) })
+  availability: (id, availability) => request(`/workers/${id}/availability`, { method: 'PATCH', body: JSON.stringify({ availability }) }),
+  applicantStatus: (jobId, workerId, status) => request(`/jobs/${jobId}/applicants/${workerId}`, { method: 'PATCH', body: JSON.stringify({ status }) }),
+  rateWorker: (id, body) => request(`/workers/${id}/rate`, { method: 'POST', body: JSON.stringify(body) })
 }
