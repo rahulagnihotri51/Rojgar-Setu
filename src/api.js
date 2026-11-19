@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000/api'
+const API = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api`.replace('/api/api', '/api')
 const token = () => localStorage.getItem('rs-token')
 const request = async (path, options = {}) => {
   const response = await fetch(`${API}${path}`, { ...options, headers: { 'Content-Type': 'application/json', ...(token() ? { Authorization: `Bearer ${token()}` } : {}), ...options.headers } })
