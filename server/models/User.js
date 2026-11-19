@@ -1,0 +1,3 @@
+import mongoose from 'mongoose'
+const schema = new mongoose.Schema({ name:{type:String,required:true}, identifier:{type:String,required:true,unique:true}, password:{type:String,required:true}, role:{type:String,enum:['worker','employer'],required:true}, skill:String, experience:{type:String,default:'0 yrs'}, location:{type:String,default:'Mathura'}, radius:{type:Number,default:10}, expectedRate:{type:String,default:'₹600/day'}, availability:{type:Boolean,default:true}, rating:{type:Number,default:4.5}, completedJobs:{type:Number,default:0} },{timestamps:true})
+export default mongoose.model('User',schema)

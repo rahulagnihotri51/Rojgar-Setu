@@ -1,0 +1,3 @@
+import mongoose from 'mongoose'
+const schema = new mongoose.Schema({ title:{type:String,required:true}, requiredSkill:{type:String,required:true}, location:{type:String,required:true}, dateTime:String, workType:{type:String,enum:['Permanent','Part-Time','On-Demand','Short-Term'],required:true}, compensation:{type:String,required:true}, workersNeeded:{type:Number,default:1}, employerId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true}, applicants:[{type:mongoose.Schema.Types.ObjectId,ref:'User'}], status:{type:String,enum:['open','closed'],default:'open'} },{timestamps:true})
+export default mongoose.model('Job',schema)
